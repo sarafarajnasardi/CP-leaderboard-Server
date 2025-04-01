@@ -57,5 +57,26 @@ const login = async (req, res) => {
         res.status(500).json({ message: "Server error", success: false });
     }
 };
+const userid = async (req, res) => {
+    try {
+        const { email } = req.query; // Use query instead of body
 
-export { register, login };
+        const user = await User.findOne({ email }); 
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found!",
+                success: false,
+            });
+        }
+
+        res.status(200).json({
+            userid: user._id,
+            success: true,
+        });
+
+    } catch (err) {
+        res.status(500).json({ message: "Server error", success: false });
+    }
+};
+
+export { register, login, userid };
