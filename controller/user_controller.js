@@ -40,8 +40,9 @@ const add = async (req, res) => {
 const remove = async (req, res) => {
     try {
         const { username, userid } = req.body;
-
-        let leaderboard = await List.findById(userid);
+        console.log(userid);
+        let leaderboard = await List.findOne({userid});
+        console.log(leaderboard);
         if (leaderboard) {
 
             leaderboard.usernames = leaderboard.usernames.filter(e => e !== username);
