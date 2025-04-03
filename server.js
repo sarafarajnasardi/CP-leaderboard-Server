@@ -7,7 +7,7 @@ import mongoose from 'mongoose';
 dotenv.config();
 const app = express();
 
-const uri = "mongodb+srv://sarafarajnasardi786:30DW509wBF3fdBNv@learn0.jmqha.mongodb.net/CP-leaderboard?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URI;
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
