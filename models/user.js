@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-
-const uri = "mongodb+srv://sarafarajnasardi786:30DW509wBF3fdBNv@learn0.jmqha.mongodb.net/CP-leaderboard?retryWrites=true&w=majority";
+import config from '../config/server_config.js';
+const uri = config.MONGO_URI
 
 mongoose.connect(uri);
 
